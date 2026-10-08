@@ -1,0 +1,858 @@
+/* =========================================
+RESET
+========================================= */
+
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/* =========================================
+BODY
+========================================= */
+
+body {
+font-family: Arial, sans-serif;
+background: #000;
+color: white;
+line-height: 1.7;
+}
+
+/* =========================================
+COMMON CONTAINER
+========================================= */
+
+.container {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+/* =========================================
+BLINK ANIMATION
+========================================= */
+
+.blink {
+animation: blinker 1.5s linear infinite;
+color: red;
+}
+
+@keyframes blinker {
+50% {
+opacity: 0;
+}
+}
+
+/* =========================================
+HEADER
+========================================= */
+
+header {
+background: #161515;
+position: fixed;
+width: 100%;
+top: 0;
+left: 0;
+
+padding: 10px 0;
+
+z-index: 1000;
+
+
+}
+
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+/* =========================================
+LOGO
+========================================= */
+
+.logo {
+display: flex;
+align-items: center;
+gap: 12px;
+
+text-decoration: none;
+
+
+}
+
+.logo-icon {
+color: yellow;
+font-size: 28px;
+}
+
+.logo-text {
+font-family: Georgia, serif;
+font-size: 28px;
+font-weight: 900;
+color: red;
+letter-spacing: 1px;
+}
+
+.logo-text span {
+color: yellow;
+}
+
+/* =========================================
+NAVIGATION
+========================================= */
+
+nav ul {
+display: flex;
+list-style: none;
+gap: 35px;
+}
+
+nav a {
+text-decoration: none;
+color: yellow;
+font-weight: 600;
+font-size: 16px;
+
+position: relative;
+
+padding: 5px 0;
+
+transition: 0.3s;
+
+
+}
+
+.line_style {
+position: relative;
+}
+
+.line_style::after {
+content: "";
+
+position: absolute;
+
+left: 0;
+bottom: -5px;
+
+width: 0;
+height: 2px;
+
+background: yellow;
+
+transition: 0.5s;
+
+
+}
+
+.line_style:hover::after {
+width: 100%;
+}
+
+/* =========================================
+NAV BUTTONS
+========================================= */
+
+.nav-buttons {
+display: flex;
+gap: 15px;
+}
+
+.btn {
+display: inline-block;
+
+padding: 8px 20px;
+
+border-radius: 30px;
+
+text-decoration: none;
+
+font-weight: 600;
+
+transition: 0.3s;
+
+cursor: pointer;
+
+font-size: 15px;
+
+
+}
+
+.btn-primary {
+background: transparent;
+color: white;
+
+border: 2px solid #734635;
+
+
+}
+
+.btn-primary:hover {
+background: #734635;
+
+transform: translateY(-3px);
+
+
+}
+
+.btn-secondary {
+background: #734635;
+
+color: white;
+
+border: 2px solid #734635;
+
+
+}
+
+.btn-secondary:hover {
+background: #8d5945;
+
+transform: translateY(-3px);
+
+
+}
+
+/* =========================================
+HERO SECTION
+========================================= */
+
+.hero {
+    min-height: 650px;
+    padding-top: 150px;
+    color: white;
+    position: relative;
+}
+
+
+.ul {
+list-style: none;
+
+font-weight: 600;
+
+font-size: 20px;
+
+margin: 25px 0 30px 0;
+
+
+}
+
+.ul li {
+margin-bottom: 10px;
+}
+
+/* =========================================
+HERO CIRCLE
+========================================= */
+
+.circle {
+width: 100px;
+height: 100px;
+
+border-radius: 50%;
+
+background: red;
+
+display: flex;
+
+justify-content: center;
+align-items: center;
+
+text-align: center;
+
+font-family: Georgia, serif;
+
+font-size: 40px;
+
+font-weight: 600;
+
+
+}
+
+/* =========================================
+HERO IMAGE
+========================================= */
+
+.cof_img {
+position: absolute;
+
+right: 0;
+
+top: 170px;
+
+width: 48%;
+
+text-align: center;
+
+
+}
+
+.cof_img img {
+width: 100%;
+max-width: 500px;
+
+height: auto;
+
+border-radius: 20px;
+
+display: block;
+
+
+}
+
+/* =========================================
+PRODUCTS SECTION
+========================================= */
+
+#Products {
+width: 90%;
+
+max-width: 1200px;
+
+margin: 0 auto;
+
+padding: 50px 0;
+
+
+}
+
+#Products h4 {
+color: yellow;
+
+font-size: 18px;
+
+margin-bottom: 5px;
+
+
+}
+
+#Products h1 {
+color: yellow;
+
+font-size: 36px;
+
+margin-bottom: 10px;
+
+
+}
+
+#Products > div:first-child hr {
+margin: 15px auto;
+}
+
+#Products > div:first-child p {
+color: white;
+
+text-align: center;
+
+margin-bottom: 30px;
+
+
+}
+
+/* =========================================
+PRODUCT BOXES
+========================================= */
+
+.bx {
+display: grid;
+
+grid-template-columns: repeat(3, 1fr);
+
+gap: 25px;
+
+align-items: stretch;
+
+
+}
+
+.box {
+width: 100%;
+
+min-height: 500px;
+
+background: #734635;
+
+border-radius: 30px;
+
+overflow: hidden;
+
+border: 5px solid transparent;
+
+transition: 0.4s;
+
+cursor: pointer;
+
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+
+
+}
+
+.box:hover {
+transform: translateY(-15px);
+
+border-color: red;
+
+
+}
+
+/* =========================================
+PRODUCT IMAGE
+========================================= */
+
+.image {
+width: 100%;
+
+height: 300px;
+
+object-fit: cover;
+
+display: block;
+
+
+}
+
+/* =========================================
+PRODUCT TITLE
+========================================= */
+
+.cvn {
+font-size: 20px;
+
+font-weight: 600;
+
+color: white;
+
+margin: 15px 10px 5px;
+
+font-family: Georgia, serif;
+
+
+}
+
+/* =========================================
+PRODUCT DESCRIPTION
+========================================= */
+
+.box p:not(.cvn) {
+color: white;
+
+margin: 10px;
+
+font-weight: bold;
+
+line-height: 1.5;
+
+
+}
+
+/* =========================================
+PRODUCT PRICE
+========================================= */
+
+.box h2 {
+margin: 15px 10px;
+
+color: white;
+
+font-weight: 600;
+
+
+}
+
+/* =========================================
+HORIZONTAL LINE
+========================================= */
+
+body > hr {
+margin-top: 40px;
+}
+
+/* =========================================
+FOOTER
+========================================= */
+
+.last {
+width: 100%;
+
+min-height: 320px;
+
+background: #401A0B;
+
+display: grid;
+
+grid-template-columns: 1.5fr 1fr 1.5fr;
+
+gap: 50px;
+
+padding: 50px 6%;
+
+box-sizing: border-box;
+
+color: white;
+
+
+}
+
+/* =========================================
+FOOTER HEADINGS
+========================================= */
+
+.lt {
+font-size: 28px;
+
+color: white;
+
+margin: 0 0 10px 0;
+
+font-family: Georgia, serif;
+
+
+}
+
+/* =========================================
+FOOTER RED LINE
+========================================= */
+
+.last hr {
+margin-left: 0 !important;
+
+margin-bottom: 25px;
+
+
+}
+
+/* =========================================
+ABOUT TEXT
+========================================= */
+
+.last > div:first-child p {
+margin: 0;
+
+color: white;
+
+font-family: Arial, sans-serif;
+
+font-size: 14px;
+
+line-height: 1.6;
+
+
+}
+
+/* =========================================
+SOCIAL ICONS
+========================================= */
+
+.last > div:first-child > div {
+display: flex;
+
+gap: 18px !important;
+
+margin: 25px 0 0 0 !important;
+
+font-size: 25px !important;
+
+
+}
+
+.icon_style {
+width: 42px;
+
+height: 42px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+border-radius: 50%;
+
+color: white;
+
+transition: 0.3s;
+
+
+}
+
+.icon_style:hover {
+background-color: red;
+
+transform: translateY(-5px);
+
+
+}
+
+.icon_style a {
+color: white;
+
+text-decoration: none;
+
+
+}
+
+/* =========================================
+CONTACT
+========================================= */
+
+.contact {
+display: flex;
+
+align-items: center;
+
+gap: 15px;
+
+margin: 15px 0;
+
+color: white;
+
+font-size: 15px;
+
+font-family: Arial, sans-serif;
+
+cursor: pointer;
+
+
+}
+
+.contact i {
+width: 25px;
+
+color: yellow;
+
+font-size: 18px;
+
+text-align: center;
+
+
+}
+
+.contact:hover {
+color: yellow;
+}
+
+/* =========================================
+FOOTER QUICK LINKS
+========================================= */
+
+.last > div:nth-child(2) {
+padding-left: 20px;
+}
+
+/* =========================================
+TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+.header-container {
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+nav ul {
+    gap: 20px;
+}
+
+
+.bx {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.last {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+    padding: 40px;
+}
+
+
+.cof_img {
+    width: 45%;
+
+    right: 0;
+}
+
+
+}
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+header {
+    position: relative;
+}
+
+
+.header-container {
+    flex-direction: column;
+}
+
+
+nav ul {
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.nav-buttons {
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+
+.hero {
+    padding-top: 60px;
+
+    min-height: auto;
+
+    padding-bottom: 50px;
+}
+
+
+.circle {
+    margin: 0 auto;
+}
+
+
+.ul {
+    margin-left: 0;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+
+.hero > div:not(.cof_img):not(.circle) {
+    text-align: center;
+}
+
+
+.cof_img {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: 100%;
+
+    margin-top: 40px;
+}
+
+
+.cof_img img {
+    max-width: 100%;
+}
+
+
+#Products {
+    width: 90%;
+}
+
+
+#Products h1 {
+    font-size: 28px;
+}
+
+
+#Products > div:first-child p {
+    font-size: 14px;
+}
+
+
+.bx {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+}
+
+
+.box {
+    min-height: auto;
+
+    padding-bottom: 15px;
+}
+
+
+.image {
+    height: 250px;
+}
+
+
+.last {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 40px 25px;
+}
+
+
+.last > div:nth-child(2) {
+    padding-left: 0;
+}
+
+
+.lt {
+    font-size: 24px;
+}
+
+
+}
+
+/* =========================================
+SMALL MOBILE
+========================================= */
+
+@media (max-width: 450px) {
+
+.logo-text {
+    font-size: 23px;
+}
+
+
+.logo-icon {
+    font-size: 23px;
+}
+
+
+.btn {
+    padding: 7px 15px;
+
+    font-size: 13px;
+}
+
+
+.hero {
+    width: 92%;
+}
+
+
+.ul {
+    font-size: 15px;
+}
+
+
+#Products h1 {
+    font-size: 24px;
+}
+
+
+.last {
+    padding: 35px 20px;
+}
+
+
+}

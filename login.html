@@ -1,0 +1,166 @@
+<html>
+	<head>
+		<title>
+			
+		</title>
+		<style>
+			.background{
+				display: flex;
+				width: 100%;
+				height: 100%;
+				background:linear-gradient(to top right,lightblue,blue);
+				justify-content: center;
+    			align-items: center;
+  
+			}
+			.login_body{
+				background: white;
+				height: 400px;
+				width: 900px;
+				border-radius: 20px;
+				box-shadow: 2px 0px 10px black;
+				display: flex;
+				justify-content: center;
+				gap: 50PX;
+				border-color: red;
+				border: 5px solid red;
+
+			}
+			input{
+				 width: 300px;
+    			height: 45px;
+    			padding-left: 15px;
+    			border: 2px solid #ccc;
+    			border-radius: 25px;
+    			font-size: 16px;
+    			outline: none;
+    			transition: 0.4s;
+    			box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+			}
+		
+			input:focus{
+    		border-color: #4CAF50;
+    		box-shadow: 0 0 15px rgba(76,175,80,0.5);
+			}
+
+			label{
+				font-size: 20px;
+
+			}
+
+			a{
+				text-decoration: none;
+			}
+			button{
+				height: 40px;
+				width: 150px;
+				margin-left:80px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				border-radius: 20px;
+				cursor: pointer;
+				background: blue;
+				transition: 0.3s;
+				font-size: 16px;
+				color: white;
+				font-weight: 600;
+				outline: none;
+				border: 2px solid transparent;
+				
+			}
+			button:hover{
+					animation: jello 0.8s;
+				}
+				@keyframes jello{
+    						0%,100%{
+        					transform: scale(1,1);
+   							}
+    						25%{
+        					transform: scale(1.1,0.9);
+    						}
+    						50%{
+        					transform: scale(0.9,1.1);
+    						}
+    						75%{
+        					transform: scale(1.05,0.95);
+    						}
+								}
+
+			}
+
+			h2{
+				color: red;
+				margin-left: 30px;
+				font-size: 30px;
+				font-family: forte;
+			}
+			h2 span{
+				color: F2D530;
+			}
+			.icon{
+				font-size: 20px;
+			}
+		.forget_p{
+			cursor: pointer;
+			text-decoration: none;
+			color: red;
+		}
+		</style>
+	</head>
+<!-- Font awesome link-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+
+	<body>
+		<div class="background">
+			<div class="login_body">
+				<div>
+					<div style="display:flex;gap: 10px;">
+					<p class="icon"><i class="fa-solid fa-mug-hot"></i></p>
+					<h2 align="center"> Brew <span>Haven</span></h2>
+
+				</div>
+				<hr size="3px" color="red">
+					<label>Usser Name</label><br>
+					<input type="text" id="email" placeholder="Enter usser name"><br>
+					<label>Password</label><br>
+					<input type="Password" id="password" placeholder=" Password" autofocus>
+					<a href="create_ac.html"><p align="center" style="text-decoration: none;"> Create Account</p></a>
+					<button onclick="login()">Login</button>
+					<a href="forgot.html"><p align="center">Forget password</p></a>
+					<a href="index.html"><p align="center">back</p></a>
+				</div>
+				<div style="height: 400px;width: 400px;background: red;">
+					<img src="brewhaven.png" width="400px" height="400px">
+				</div>
+			</div>
+		</div>
+		<script>
+		function login()
+{
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    let savedEmail = localStorage.getItem("email");
+    let savedPassword = localStorage.getItem("password");
+
+    alert("Entered Email: " + email);
+	alert("Saved Email: " + savedEmail);
+
+	alert("Entered Password: " + password);
+	alert("Saved Password: " + savedPassword);
+
+    if(email == savedEmail && password == savedPassword)
+    {
+        alert("Login Successful");
+        window.location.href = "orders.html";
+    }
+    else
+    {
+        alert("Invalid Email or Password");
+    }
+}
+</script>
+	</body>
+</html>

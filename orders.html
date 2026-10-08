@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brew Haven - Order Records</title>
+
+<link rel="stylesheet" href="orders.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container">
+
+<div class="logo">
+
+<i class="fa-solid fa-mug-hot"></i>
+
+<h2>Brew <span>Haven</span></h2>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="order.html">Online Order</a></li>
+
+<li><a href="#">Today's Orders</a></li>
+
+<li><a href="#">Reports</a></li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="top">
+
+<h1>Customer Order Records</h1>
+
+<p>All Coffee Orders Are Displayed Here</p>
+
+</section>
+
+<section class="summary">
+
+<div class="box">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<h2 id="totalOrders">0</h2>
+
+<p>Total Orders</p>
+
+</div>
+
+<div class="box">
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+<h2 id="totalSales">₹0</h2>
+
+<p>Total Sales</p>
+
+</div>
+
+<div class="box">
+
+<i class="fa-solid fa-mug-hot"></i>
+
+<h2 id="coffeeCount">0</h2>
+
+<p>Total Coffee</p>
+
+</div>
+
+</section>
+
+<section class="searchSection">
+
+<input
+type="text"
+id="search"
+placeholder="Search Customer Name..."
+onkeyup="searchOrder()">
+
+<button onclick="deleteAllOrders()">
+
+Delete All Orders
+
+</button>
+
+</section>
+
+<section class="tableSection">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Order ID</th>
+
+<th>Name</th>
+
+<th>Mobile</th>
+
+<th>Email</th>
+
+<th>Coffee</th>
+
+<th>Qty</th>
+
+<th>Total</th>
+
+<th>Date</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="orderTable">
+
+<!-- JavaScript Data -->
+
+</tbody>
+
+</table>
+
+</section>
+<footer>
+
+<p>
+© 2026 Brew Haven Coffee Shop
+</p>
+
+</footer>
+
+<script src="orders.js"></script>
+
+</body>
+</html>
