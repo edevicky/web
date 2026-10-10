@@ -505,7 +505,7 @@ nav ul{flex-wrap:wrap;justify-content:center;gap:20px;}
 ==========================*/
 
 @media(max-width:820px){
-.menu-toggle{display:block;}
+.menu-toggle{display:block;position:static;flex:0 0 auto;}
 .container{position:relative;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;gap:10px;}
 .menu-panel{display:none;}
 header.open .menu-panel{
@@ -514,7 +514,7 @@ header.open .menu-panel{
     align-items:stretch;
     gap:16px;
     position:absolute;
-    top:58px;
+    top:calc(100% + 6px);
     right:12px;
     width:min(300px,88vw);
     padding:20px;
