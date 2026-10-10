@@ -73,18 +73,18 @@
                     </ul>
 
                 </nav>
-                <!-- Header Buttons -->
-                <div class="nav-buttons">
+            </div>
+            <!-- Header Buttons -->
+            <div class="nav-buttons">
 
-                    <a href="login.html" class="btn btn-secondary">
-                        Sign in
-                    </a>
+                <a href="login.html" class="btn btn-secondary">
+                    Sign in
+                </a>
 
-                    <a href="order.html" class="btn btn-primary">
-                        Order online
-                    </a>
+                <a href="order.html" class="btn btn-primary">
+                    Order online
+                </a>
 
-                </div>
             </div>
             <!-- Mobile Menu Toggle -->
 
@@ -402,6 +402,16 @@
                     icon.classList.remove("fa-xmark");
                     icon.classList.add("fa-bars");
                 });
+            });
+
+            /* Close menu on outside click */
+            document.addEventListener("click", function (e) {
+                if (header.classList.contains("open") && !header.contains(e.target)) {
+                    header.classList.remove("open");
+                    var icon = menuToggle.querySelector("i");
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+                }
             });
         }
 

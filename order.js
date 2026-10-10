@@ -181,6 +181,16 @@ function initMobileMenu() {
             icon.classList.add("fa-bars");
         });
     });
+
+    /* Close menu on outside click */
+    document.addEventListener("click", function (e) {
+        if (header.classList.contains("open") && !header.contains(e.target)) {
+            header.classList.remove("open");
+            var icon = toggle.querySelector("i");
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+        }
+    });
 }
 
 /* ---------- Init ---------- */
