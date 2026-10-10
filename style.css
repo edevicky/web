@@ -129,7 +129,6 @@ header {
     background: rgba(240, 224, 198, 0.82);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-soft);
     transition: 0.35s;
 }
 
@@ -184,13 +183,11 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover { opacity: 1; color: var(--gold-2); }
-
-.line_style::after {
+nav a::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -2px;
+    bottom: -1px;
     width: 0;
     height: 2px;
     border-radius: 2px;
@@ -198,7 +195,8 @@ nav a:hover { opacity: 1; color: var(--gold-2); }
     transition: 0.4s;
 }
 
-.line_style:hover::after { width: 100%; }
+nav a:hover { opacity: 1; color: var(--gold-2); }
+nav a:hover::after { width: 100%; }
 
 /* BUTTONS */
 .nav-buttons { display: flex; align-items: center; gap: 14px; }

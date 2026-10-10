@@ -193,8 +193,35 @@ function initMobileMenu() {
     });
 }
 
+/* ---------- Scroll reveal ---------- */
+function initScrollReveal() {
+    var els = document.querySelectorAll(
+        ".hero .left, .hero .right, .category h1, .cat, .products h1, .card, .cart h1, .cart-box, .checkout h1, .left-form, .right-form, .review h1, .review-card"
+    );
+    if (!els.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+        els.forEach(function (el) { el.classList.add("reveal", "in-view"); });
+        return;
+    }
+
+    els.forEach(function (el) { el.classList.add("reveal"); });
+
+    var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    els.forEach(function (el) { obs.observe(el); });
+}
+
 /* ---------- Init ---------- */
 document.addEventListener("DOMContentLoaded", function () {
     displayCart();
     initMobileMenu();
+    initScrollReveal();
 });

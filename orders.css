@@ -70,10 +70,9 @@ header{
     position:sticky;
     top:0;
     z-index:999;
-    background:rgba(255,255,255,.75);
+    background:rgba(240,224,198,.85);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--border-soft);
 }
 
 .container{
@@ -108,8 +107,20 @@ header{
 }
 
 nav ul{display:flex;list-style:none;gap:30px;}
-nav ul li a{color:var(--ink);opacity:.78;font-size:16px;transition:.3s;}
+nav ul li a{position:relative;color:var(--ink);opacity:.78;font-size:16px;transition:.3s;}
+nav ul li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-3px;
+    width:0;
+    height:2px;
+    border-radius:2px;
+    background:linear-gradient(90deg,var(--gold),var(--copper));
+    transition:.4s;
+}
 nav ul li a:hover{color:var(--gold-2);opacity:1;}
+nav ul li a:hover::after{width:100%;}
 
 /*=========================
         TOP TITLE
@@ -320,6 +331,13 @@ header.open .menu-panel{
 }
 header.open .menu-panel nav ul{flex-direction:column;gap:12px;}
 }
+
+/*=========================================
+            SCROLL REVEAL
+=========================================*/
+
+.reveal{opacity:0;transform:translateY(45px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.in-view{opacity:1;transform:translateY(0);}
 
 /*=========================================
             PRINT STYLE
