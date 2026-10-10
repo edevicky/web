@@ -11,7 +11,38 @@ window.onload = function()
 {
     displayOrders();
     updateSummary();
+    initMobileMenu();
 };
+
+/* Mobile menu toggle */
+function initMobileMenu()
+{
+    var header = document.querySelector("header");
+    var toggle = document.getElementById("menuToggle");
+    if (!header || !toggle) return;
+
+    toggle.addEventListener("click", function()
+    {
+        header.classList.toggle("open");
+        var icon = toggle.querySelector("i");
+        if (header.classList.contains("open")) {
+            icon.classList.replace("fa-bars", "fa-xmark");
+        } else {
+            icon.classList.replace("fa-xmark", "fa-bars");
+        }
+    });
+
+    document.querySelectorAll("header .menu-panel a").forEach(function(link)
+    {
+        link.addEventListener("click", function()
+        {
+            header.classList.remove("open");
+            var icon = toggle.querySelector("i");
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+        });
+    });
+}
 
 /* Orders table display function */
 function displayOrders()

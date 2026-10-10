@@ -27,19 +27,24 @@
 			<i class="fa-solid fa-mug-hot"></i>
 			<h2>Brew <span>Haven</span></h2>
 		</div>
-		<nav>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="#">Coffee</a></li>
-				<li><a href="#">Special Menu</a></li>
-				<li><a href="#">Offers</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</nav>
+		<div class="menu-panel">
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="#">Coffee</a></li>
+					<li><a href="#">Special Menu</a></li>
+					<li><a href="#">Offers</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
 		<div class="right">
 			<input type="search" id="searchBox" placeholder="Search Coffee..." oninput="searchProducts()">
 			<button class="login" onclick="window.location.href='login.html'">Sign in</button>
 		</div>
+		<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+			<i class="fa-solid fa-bars"></i>
+		</button>
 	</div>
 </header>
 
