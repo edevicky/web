@@ -6,691 +6,327 @@
 <title>Brew Haven - Online Order</title>
 
 <link rel="stylesheet" href="order.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
-<!--================ HEADER START ================-->
-	<header>
-		<div class="container">
-			<div class="logo">
-				<i class="fa-solid fa-mug-hot"></i>
-				<h2>Brew <span>Haven</span></h2>
 
-			</div>
-	<nav>
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="#">Coffee</a></li>
-			<li><a href="#">Special Menu</a></li>
-			<li><a href="#">Offers</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</nav>
+<!--================ 2D SHAPES ================-->
+<div class="bg-shapes">
+	<span class="shape-circle s1"></span>
+	<span class="shape-ring s2"></span>
+	<span class="shape-square s3"></span>
+	<span class="shape-triangle s4"></span>
+	<span class="shape-circle s5"></span>
+	<span class="shape-square s6"></span>
+</div>
+
+<!--================ HEADER ================-->
+<header>
+	<div class="container">
+		<div class="logo">
+			<i class="fa-solid fa-mug-hot"></i>
+			<h2>Brew <span>Haven</span></h2>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#">Coffee</a></li>
+				<li><a href="#">Special Menu</a></li>
+				<li><a href="#">Offers</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
 		<div class="right">
-			<input type="search" placeholder="Search Coffee...">	
+			<input type="search" id="searchBox" placeholder="Search Coffee..." oninput="searchProducts()">
+			<button class="login" onclick="window.location.href='login.html'">Sign in</button>
 		</div>
 	</div>
 </header>
-<!--================ HEADER END =================-->
-<!--================ HERO SECTION ================-->
-<section class="hero">
-		<div class="left">
-			<h1>Fresh Coffee Delivered To
-			<span>Your Door</span>
-			</h1>
 
-				<p>Enjoy Premium Coffee made from the finest beans.Hot Coffee Cold Coffee Espresso Latte Cappuccino Mocha Cold Brew and many more...
-				</p>
-			<button class="shop">Order Now</button>
-		</div>
-		<div class="right">
-	<img src="images/coffee-banner.png">
-</div>
+<!--================ HERO ================-->
+<section class="hero">
+	<div class="left">
+		<h1>Fresh Coffee Delivered To <span>Your Door</span></h1>
+		<p>Enjoy premium coffee made from the finest beans. Hot Coffee, Cold Coffee, Espresso, Latte, Cappuccino, Mocha, Cold Brew and many more...</p>
+		<button class="shop" onclick="document.getElementById('menu').scrollIntoView()">Order Now</button>
+	</div>
+	<div class="right">
+		<img src="black2.jpg" alt="Coffee">
+	</div>
 </section>
-<!--================ HERO END =================-->
+
 <!--================ CATEGORY ================-->
 <section class="category">
-		<h1>Choose Your Favourite Coffee</h1>
-			<div class="cat-box">
-				<div class="cat">
-					<i class="fa-solid fa-mug-hot"></i>
-					<h3>Hot Coffee</h3>
-				</div>
-			<div class="cat">
-				<i class="fa-solid fa-glass-water"></i>
-				<h3>Cold Coffee</h3>
-			</div>
-			<div class="cat">
-				<i class="fa-solid fa-heart"></i>
-					<h3>Special Coffee</h3>
-				</div>
-			<div class="cat">
-				<i class="fa-solid fa-cake-candles"></i>
-				<h3>Dessert</h3>
-			</div>
+	<h1>Choose Your Favourite Coffee</h1>
+	<div class="cat-box">
+		<div class="cat"><i class="fa-solid fa-mug-hot"></i><h3>Hot Coffee</h3></div>
+		<div class="cat"><i class="fa-solid fa-glass-water"></i><h3>Cold Coffee</h3></div>
+		<div class="cat"><i class="fa-solid fa-heart"></i><h3>Special Coffee</h3></div>
+		<div class="cat"><i class="fa-solid fa-cake-candles"></i><h3>Dessert</h3></div>
+	</div>
+</section>
+
+<!--================ PRODUCTS ================-->
+<section class="products" id="menu">
+	<h1>Popular Coffee Menu</h1>
+	<div class="product-container">
+
+		<div class="card">
+			<img src="c1.jpeg" alt="Classic Espresso">
+			<h2>Classic Espresso</h2>
+			<p>Rich espresso made from premium beans.</p>
+			<h3>₹120</h3>
+			<button onclick="addCart('Classic Espresso',120)">Add To Cart</button>
 		</div>
 
-</section>
-<!--================ CATEGORY END ================-->
-<!--================ PRODUCT SECTION ================-->
-<section class="products">
-<h1>
-Popular Coffee Menu
-</h1>
-<div class="product-container">
-<!-- Product 1 -->
-<div class="card">
-<img src="https://source.unsplash.com/400x300/?espresso">
-<h2>Classic Espresso</h2>
-<p>
-Rich espresso made from premium beans.
-</p>
-<h3>₹120</h3>
-<button onclick="addCart('Classic Espresso',120)">
-Add To Cart
-</button>
-</div>
-<!-- Product 2 -->
-<div class="card">
-<img src="images/c2.jpg">
-<h2>Cappuccino</h2>
-<p>
-Creamy milk foam with espresso.
-</p>
-<h3>₹150</h3>
-<button onclick="addCart('Cappuccino',150)">
-Add To Cart
-</button>
-</div>
-<!-- Product 3 -->
-<div class="card">
-<img src="images/c3.jpg">
-<h2>Latte</h2>
-<p>
-Smooth milk coffee.
-</p>
-<h3>₹170</h3>
-<button onclick="addCart('Latte',170)">
-Add To Cart
-</button>
-</div>
-<!-- Product 4 -->
-<div class="card">
-<img src="images/c4.jpg">
-<h2>Mocha</h2>
-<p>
-Chocolate flavour coffee.
-</p>
-<h3>₹180</h3>
-<button onclick="addCart('Mocha',180)">
-Add To Cart
-</button>
-</div>
-<!-- Product 5 -->
-<div class="card">
-<img src="images/c5.jpg">
-<h2>Cold Brew</h2>
-<p>
-Refreshing cold coffee.
-</p>
-
-<h3>₹190</h3>
-
-<button onclick="addCart('Cold Brew',190)">
-
-Add To Cart
-
-</button>
-
-</div>
-
-<!-- Product 6 -->
-
-<div class="card">
-
-<img src="images/c6.jpg">
-
-<h2>Americano</h2>
-
-<p>
-
-Strong black coffee.
-
-</p>
-<h3>₹140</h3>
-<button onclick="addCart('Americano',140)">
-Add To Cart
-</button>
-</div>
-<!--================ PRODUCT 7 =================-->
-<div class="card">
-<img src="images/c7.jpg">
-<h2>Irish Coffee</h2>
-<p>
-Premium coffee with rich creamy taste.
-</p>
-
-<h3>₹210</h3>
-
-<button onclick="addCart('Irish Coffee',210)">
-Add To Cart
-</button>
-
-</div>
-
-<!--================ PRODUCT 8 =================-->
-
-<div class="card">
-
-<img src="images/c8.jpg">
-
-<h2>Vanilla Latte</h2>
-
-<p>
-Fresh milk with vanilla flavour.
-</p>
-
-<h3>₹180</h3>
-
-<button onclick="addCart('Vanilla Latte',180)">
-Add To Cart
-</button>
-
-</div>
-
-<!--================ PRODUCT 9 =================-->
-
-<div class="card">
-
-<img src="images/c9.jpg">
-
-<h2>Hazelnut Coffee</h2>
-
-<p>
-Rich hazelnut flavour coffee.
-</p>
-
-<h3>₹220</h3>
-
-<button onclick="addCart('Hazelnut Coffee',220)">
-Add To Cart
-</button>
-
-</div>
-<!--================ PRODUCT 10 =================-->
-<div class="card">
-
-<img src="images/c10.jpg">
-<h2>Caramel Latte</h2>
-<p>
-Sweet caramel coffee with milk.
-</p>
-<h3>₹200</h3>
-<button onclick="addCart('Caramel Latte',200)">
-Add To Cart
-</button>
-</div>
-<!--================ PRODUCT 11 =================-->
-
-<div class="card">
-
-<img src="images/c11.jpg">
-
-<h2>Black Coffee</h2>
-
-<p>
-Pure roasted black coffee.
-</p>
-
-<h3>₹100</h3>
-
-<button onclick="addCart('Black Coffee',100)">
-Add To Cart
-</button>
-
-</div>
-
-<!--================ PRODUCT 12 =================-->
-
-<div class="card">
-
-<img src="images/c12.jpg">
-
-<h2>Chocolate Mocha</h2>
-
-<p>
-Chocolate blended premium coffee.
-</p>
-
-<h3>₹230</h3>
-
-<button onclick="addCart('Chocolate Mocha',230)">
-Add To Cart
-</button>
-
-</div>
-
-<!--================ PRODUCT 13 =================-->
-
-<div class="card">
-
-<img src="images/c13.jpg">
-
-<h2>Cold Latte</h2>
-
-<p>
-Ice cold latte with fresh cream.
-</p>
-
-<h3>₹170</h3>
-
-<button onclick="addCart('Cold Latte',170)">
-Add To Cart
-</button>
-
-</div>
-
-<!--================ PRODUCT 14 =================-->
-
-<div class="card">
-
-<img src="images/c14.jpg">
-
-<h2>Affogato</h2>
-
-<p>
-Espresso served with vanilla ice cream.
-</p>
-
-<h3>₹260</h3>
-
-<button onclick="addCart('Affogato',260)">
-Add To Cart
-</button>
-
-</div>
-
-<!--================ PRODUCT 15 =================-->
-
-<div class="card">
-
-<img src="images/c15.jpg">
-
-<h2>Premium Brew</h2>
-
-<p>
-Special Brew Haven Signature Coffee.
-</p>
-
-<h3>₹300</h3>
-
-<button onclick="addCart('Premium Brew',300)">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
+		<div class="card">
+			<img src="c2.jpeg" alt="Cappuccino">
+			<h2>Cappuccino</h2>
+			<p>Creamy milk foam with espresso.</p>
+			<h3>₹150</h3>
+			<button onclick="addCart('Cappuccino',150)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="c3.jpg" alt="Latte">
+			<h2>Latte</h2>
+			<p>Smooth milk coffee.</p>
+			<h3>₹170</h3>
+			<button onclick="addCart('Latte',170)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="black2.jpg" alt="Mocha">
+			<h2>Mocha</h2>
+			<p>Chocolate flavour coffee.</p>
+			<h3>₹180</h3>
+			<button onclick="addCart('Mocha',180)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="black.avif" alt="Cold Brew">
+			<h2>Cold Brew</h2>
+			<p>Refreshing cold coffee.</p>
+			<h3>₹190</h3>
+			<button onclick="addCart('Cold Brew',190)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="brewhaven.png" alt="Americano">
+			<h2>Americano</h2>
+			<p>Strong black coffee.</p>
+			<h3>₹140</h3>
+			<button onclick="addCart('Americano',140)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="c1.jpeg" alt="Irish Coffee">
+			<h2>Irish Coffee</h2>
+			<p>Premium coffee with rich creamy taste.</p>
+			<h3>₹210</h3>
+			<button onclick="addCart('Irish Coffee',210)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="c2.jpeg" alt="Vanilla Latte">
+			<h2>Vanilla Latte</h2>
+			<p>Fresh milk with vanilla flavour.</p>
+			<h3>₹180</h3>
+			<button onclick="addCart('Vanilla Latte',180)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="c3.jpg" alt="Hazelnut Coffee">
+			<h2>Hazelnut Coffee</h2>
+			<p>Rich hazelnut flavour coffee.</p>
+			<h3>₹220</h3>
+			<button onclick="addCart('Hazelnut Coffee',220)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="black2.jpg" alt="Caramel Latte">
+			<h2>Caramel Latte</h2>
+			<p>Sweet caramel coffee with milk.</p>
+			<h3>₹200</h3>
+			<button onclick="addCart('Caramel Latte',200)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="black.avif" alt="Black Coffee">
+			<h2>Black Coffee</h2>
+			<p>Pure roasted black coffee.</p>
+			<h3>₹100</h3>
+			<button onclick="addCart('Black Coffee',100)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="brewhaven.png" alt="Chocolate Mocha">
+			<h2>Chocolate Mocha</h2>
+			<p>Chocolate blended premium coffee.</p>
+			<h3>₹230</h3>
+			<button onclick="addCart('Chocolate Mocha',230)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="c1.jpeg" alt="Cold Latte">
+			<h2>Cold Latte</h2>
+			<p>Ice cold latte with fresh cream.</p>
+			<h3>₹170</h3>
+			<button onclick="addCart('Cold Latte',170)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="c2.jpeg" alt="Affogato">
+			<h2>Affogato</h2>
+			<p>Espresso served with vanilla ice cream.</p>
+			<h3>₹260</h3>
+			<button onclick="addCart('Affogato',260)">Add To Cart</button>
+		</div>
+
+		<div class="card">
+			<img src="c3.jpg" alt="Premium Brew">
+			<h2>Premium Brew</h2>
+			<p>Special Brew Haven signature coffee.</p>
+			<h3>₹300</h3>
+			<button onclick="addCart('Premium Brew',300)">Add To Cart</button>
+		</div>
+
+	</div>
 </section>
 
-<!--================ CART SECTION =================-->
-
+<!--================ CART ================-->
 <section class="cart">
-
-<h1>Your Shopping Cart</h1>
-
-<div class="cart-box">
-
-<table border="1" width="100%" cellspacing="0">
-
-<tr>
-
-<th>Coffee</th>
-
-<th>Price</th>
-
-<th>Qty</th>
-
-<th>Total</th>
-
-<th>Action</th>
-
-</tr>
-
-<tbody id="cartItems">
-
-</tbody>
-
-</table>
-
-<div class="grand">
-
-<h2>
-
-Grand Total :
-₹ <span id="grandTotal">0</span>
-
-</h2>
-
-</div>
-
-</div>
-
+	<h1>Your Shopping Cart</h1>
+	<div class="cart-box">
+		<table cellspacing="0">
+			<thead>
+				<tr>
+					<th>Coffee</th>
+					<th>Price</th>
+					<th>Qty</th>
+					<th>Total</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody id="cartItems">
+				<tr><td colspan="5">Your cart is empty</td></tr>
+			</tbody>
+		</table>
+		<div class="grand">
+			<h2>Grand Total : ₹ <span id="grandTotal">0</span></h2>
+		</div>
+	</div>
 </section>
 
-<!--================ CHECKOUT SECTION =================-->
-
+<!--================ CHECKOUT ================-->
 <section class="checkout">
+	<h1>Checkout Details</h1>
+	<div class="checkout-box">
+		<div class="left-form">
+			<label>Full Name</label>
+			<input type="text" id="name" placeholder="Enter your name">
 
-<h1>
+			<label>Mobile Number</label>
+			<input type="text" id="mobile" placeholder="Enter mobile number">
 
-Checkout Details
+			<label>Email</label>
+			<input type="email" id="email" placeholder="Enter your email">
 
-</h1>
+			<label>Delivery Address</label>
+			<textarea id="address" placeholder="Enter delivery address"></textarea>
 
-<div class="checkout-box">
+			<label>City</label>
+			<input type="text" id="city" placeholder="Enter city">
 
-<div class="left-form">
+			<label>Pincode</label>
+			<input type="text" id="pin" placeholder="Enter pincode">
+		</div>
 
-<label>Full Name</label>
+		<div class="right-form">
+			<h2>Select Payment Method</h2>
+			<div class="payment">
+				<label><input type="radio" name="pay" checked> Cash On Delivery</label><br>
+				<label><input type="radio" name="pay"> UPI Payment</label><br>
+				<label><input type="radio" name="pay"> Credit / Debit Card</label><br>
+				<label><input type="radio" name="pay"> Net Banking</label>
+			</div>
 
-<input type="text" id="name">
+			<hr>
 
-<label>Mobile Number</label>
+			<h2>Order Summary</h2>
+			<div class="summary">
+				<p>Total Items : <span id="totalItem">0</span></p>
+				<p>Total Price : <b>₹ <span id="finalPrice">0</span></b></p>
+			</div>
 
-<input type="text" id="mobile">
-
-<label>Email</label>
-
-<input type="email" id="email">
-
-<label>Delivery Address</label>
-
-<textarea id="address"></textarea>
-
-<label>City</label>
-
-<input type="text" id="city">
-
-<label>Pincode</label>
-
-<input type="text" id="pin">
-<!--================ PAYMENT SECTION =================-->
-
-</div>
-
-<div class="right-form">
-
-<h2>Select Payment Method</h2>
-
-<div class="payment">
-
-<label>
-<input type="radio" name="pay" checked>
-Cash On Delivery
-</label>
-
-<br><br>
-
-<label>
-<input type="radio" name="pay">
-UPI Payment
-</label>
-
-<br><br>
-
-<label>
-<input type="radio" name="pay">
-Credit / Debit Card
-</label>
-
-<br><br>
-
-<label>
-<input type="radio" name="pay">
-Net Banking
-</label>
-
-</div>
-
-<hr>
-
-<h2>Order Summary</h2>
-
-<div class="summary">
-
-<p>Total Items :
-<span id="totalItem">0</span></p>
-
-<p>Total Price :
-<b>₹ <span id="finalPrice">0</span></b></p>
-
-</div>
-
-<button class="placeOrder"
-onclick="placeOrder()">
-
-<i class="fa-solid fa-cart-shopping"></i>
-
-Place Order
-
-</button>
-
-</div>
-
-</div>
-
+			<button class="placeOrder" onclick="placeOrder()">
+				<i class="fa-solid fa-cart-shopping"></i> Place Order
+			</button>
+		</div>
+	</div>
 </section>
 
-<!--================ CUSTOMER REVIEW =================-->
-
+<!--================ REVIEW ================-->
 <section class="review">
-
-<h1>Our Happy Customers</h1>
-
-<div class="review-box">
-
-<div class="review-card">
-
-<img src="images/user1.jpg">
-
-<h3>Rahul Sharma</h3>
-
-<p>
-
-★★★★★
-
-</p>
-
-<p>
-
-The coffee quality is amazing.
-Fast delivery and excellent taste.
-
-</p>
-
-</div>
-
-<div class="review-card">
-
-<img src="images/user2.jpg">
-
-<h3>Priya Singh</h3>
-
-<p>
-
-★★★★★
-
-</p>
-
-<p>
-
-I love Brew Haven.
-Best coffee website.
-
-</p>
-
-</div>
-
-<div class="review-card">
-
-<img src="images/user3.jpg">
-
-<h3>Amit Verma</h3>
-
-<p>
-
-★★★★★
-
-</p>
-
-<p>
-
-Fresh coffee and very professional service.
-
-</p>
-
-</div>
-
-</div>
-
+	<h1>Our Happy Customers</h1>
+	<div class="review-box">
+		<div class="review-card">
+			<div class="avatar">R</div>
+			<h3>Rahul Sharma</h3>
+			<p class="stars">★★★★★</p>
+			<p>The coffee quality is amazing. Fast delivery and excellent taste.</p>
+		</div>
+		<div class="review-card">
+			<div class="avatar">P</div>
+			<h3>Priya Singh</h3>
+			<p class="stars">★★★★★</p>
+			<p>I love Brew Haven. Best coffee website.</p>
+		</div>
+		<div class="review-card">
+			<div class="avatar">A</div>
+			<h3>Amit Verma</h3>
+			<p class="stars">★★★★★</p>
+			<p>Fresh coffee and very professional service.</p>
+		</div>
+	</div>
 </section>
 
-<!--================ FOOTER =================-->
-
-<footer>
-
-<div class="footer">
-
-<div>
-
-<h2>Brew Haven</h2>
-
-<p>
-
-Fresh Coffee Since 2026
-
-</p>
-
-<p>
-
-Premium Coffee Beans
-
-</p>
-
-<p>
-
-Fast Home Delivery
-
-</p>
-
-</div>
-
-<div>
-
-<h2>Quick Links</h2>
-
-<p>Home</p>
-
-<p>Menu</p>
-
-<p>Offers</p>
-
-<p>Contact</p>
-
-</div>
-
-<div>
-
-<h2>Contact</h2>
-
-<p>
-
-<i class="fa-solid fa-phone"></i>
-
-+91 9876543210
-
-</p>
-
-<p>
-
-<i class="fa-solid fa-envelope"></i>
-
-brewhaven@gmail.com
-
-</p>
-
-<p>
-
-<i class="fa-solid fa-location-dot"></i>
-
-Mau, Uttar Pradesh
-
-</p>
-
-</div>
-
-<div>
-
-<h2>Follow Us</h2>
-
-<p>
-
-<i class="fa-brands fa-facebook"></i>
-
-Facebook
-
-</p>
-
-<p>
-
-<i class="fa-brands fa-instagram"></i>
-
-Instagram
-
-</p>
-
-<p>
-
-<i class="fa-brands fa-twitter"></i>
-
-Twitter
-
-</p>
-
-<p>
-
-<i class="fa-brands fa-youtube"></i>
-
-YouTube
-
-</p>
-
-</div>
-
-</div>
-
-<hr>
-
-<center>
-
-<p>
-
-© 2026 Brew Haven | All Rights Reserved
-
-</p>
-
-</center>
-
+<!--================ FOOTER ================-->
+<footer id="contact">
+	<div class="footer">
+		<div>
+			<h2>Brew Haven</h2>
+			<p>Fresh Coffee Since 2026</p>
+			<p>Premium Coffee Beans</p>
+			<p>Fast Home Delivery</p>
+		</div>
+		<div>
+			<h2>Quick Links</h2>
+			<p>Home</p>
+			<p>Menu</p>
+			<p>Offers</p>
+			<p>Contact</p>
+		</div>
+		<div>
+			<h2>Contact</h2>
+			<p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+			<p><i class="fa-solid fa-envelope"></i> brewhaven@gmail.com</p>
+			<p><i class="fa-solid fa-location-dot"></i> Mau, Uttar Pradesh</p>
+		</div>
+		<div>
+			<h2>Follow Us</h2>
+			<p><i class="fa-brands fa-facebook"></i> Facebook</p>
+			<p><i class="fa-brands fa-instagram"></i> Instagram</p>
+			<p><i class="fa-brands fa-twitter"></i> Twitter</p>
+			<p><i class="fa-brands fa-youtube"></i> YouTube</p>
+		</div>
+	</div>
+	<hr>
+	<center><p>© 2026 Brew Haven | All Rights Reserved</p></center>
 </footer>
 
+<div class="toast-wrap" id="toastWrap"></div>
+
 <script src="order.js"></script>
-
-
 </body>
-
 </html>

@@ -19,6 +19,16 @@
 </head>
 <body>
 
+    <!-- 2D background shapes -->
+    <div class="bg-shapes">
+        <span class="shape-circle s1"></span>
+        <span class="shape-ring s2"></span>
+        <span class="shape-square s3"></span>
+        <span class="shape-triangle s4"></span>
+        <span class="shape-circle s5"></span>
+        <span class="shape-square s6"></span>
+    </div>
+
     <!-- =========================
          HEADER
     ========================== -->
@@ -37,42 +47,50 @@
                 </div>
 
             </a>
-            <!-- Navigation -->
-            <nav>
+            <!-- Nav + Buttons panel -->
+            <div class="menu-panel">
+                <!-- Navigation -->
+                <nav>
 
-                <ul>
+                    <ul>
 
-                    <li class="line_style">
-                        <a href="#">Home</a>
-                    </li>
+                        <li class="line_style">
+                            <a href="#">Home</a>
+                        </li>
 
-                    <li class="line_style">
-                        <a href="#Products">Products</a>
-                    </li>
+                        <li class="line_style">
+                            <a href="#Products">Products</a>
+                        </li>
 
-                    <li class="line_style">
-                        <a href="#locations">Locations</a>
-                    </li>
+                        <li class="line_style">
+                            <a href="#locations">Locations</a>
+                        </li>
 
-                    <li class="line_style">
-                        <a href="#contact">Contact</a>
-                    </li>
+                        <li class="line_style">
+                            <a href="#contact">Contact</a>
+                        </li>
 
-                </ul>
+                    </ul>
 
-            </nav>
-            <!-- Header Buttons -->
-            <div class="nav-buttons">
+                </nav>
+                <!-- Header Buttons -->
+                <div class="nav-buttons">
 
-                <a href="login.html" class="btn btn-secondary">
-                    Sign in
-                </a>
+                    <a href="login.html" class="btn btn-secondary">
+                        Sign in
+                    </a>
 
-                <a href="order.html" class="btn btn-primary">
-                    Order online
-                </a>
+                    <a href="order.html" class="btn btn-primary">
+                        Order online
+                    </a>
 
+                </div>
             </div>
+            <!-- Mobile Menu Toggle -->
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
         </div>
 
@@ -117,8 +135,7 @@
             <img src="black2.jpg" alt="Coffee">
 
         </div>
-        <hr>
-
+    
     </section>
     <!-- =========================
          PRODUCTS SECTION
@@ -356,6 +373,71 @@
             </p>
         </div>
     </footer>
+
+    <!-- =========================
+         INTERACTION SCRIPT
+    ========================== -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var header = document.querySelector("header");
+        var menuToggle = document.getElementById("menuToggle");
+
+        /* ---------- Mobile menu ---------- */
+        if (menuToggle) {
+            menuToggle.addEventListener("click", function () {
+                header.classList.toggle("open");
+                var icon = menuToggle.querySelector("i");
+                if (header.classList.contains("open")) {
+                    icon.classList.replace("fa-bars", "fa-xmark");
+                } else {
+                    icon.classList.replace("fa-xmark", "fa-bars");
+                }
+            });
+
+            document.querySelectorAll("header nav a, header .nav-buttons a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    header.classList.remove("open");
+                    var icon = menuToggle.querySelector("i");
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+                });
+            });
+        }
+
+        /* ---------- Header shadow on scroll ---------- */
+        function onScroll() {
+            if (window.scrollY > 30) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        }
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+
+        /* ---------- 3D scroll reveal ---------- */
+        var revealEls = document.querySelectorAll(
+            ".section-heading, .footer-about, .footer-links, .footer-contact"
+        );
+        var fadeEls = document.querySelectorAll(".box");
+
+        revealEls.forEach(function (el) { el.classList.add("reveal"); });
+        fadeEls.forEach(function (el) { el.classList.add("reveal-fade"); });
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in-view");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+
+        revealEls.forEach(function (el) { observer.observe(el); });
+        fadeEls.forEach(function (el) { observer.observe(el); });
+    });
+    </script>
 </body>
 
 </html>
