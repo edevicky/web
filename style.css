@@ -126,7 +126,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(240, 224, 198, 0.82);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-soft);
@@ -134,7 +134,7 @@ header {
 }
 
 header.scrolled {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(240, 224, 198, 0.96);
     box-shadow: 0 10px 30px rgba(120, 80, 30, 0.12);
 }
 
@@ -358,7 +358,7 @@ nav a:hover { opacity: 1; color: var(--gold-2); }
     color: var(--ink);
 }
 
-.section-heading hr {
+<!--.section-heading hr {
     width: 90px;
     height: 3px;
     border: none;
@@ -366,7 +366,7 @@ nav a:hover { opacity: 1; color: var(--gold-2); }
     border-radius: 3px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
-
+-->
 .section-heading p { color: var(--muted); font-size: 16px; }
 
 .bx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
