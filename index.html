@@ -19,6 +19,43 @@
 </head>
 <body>
 
+    <!-- =========================
+         COFFEE ENTRY PRELOADER
+    ========================== -->
+    <div class="preloader" id="preloader">
+
+        <div class="cup-scene">
+
+            <div class="steam">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="mug">
+                <div class="mug-rim"></div>
+                <div class="coffee">
+                    <div class="coffee-fill"></div>
+                </div>
+                <div class="handle"></div>
+            </div>
+
+            <div class="saucer"></div>
+
+        </div>
+
+        <div class="preloader-text">
+            Brew<span>Haven</span>
+        </div>
+
+        <div class="preloader-bar">
+            <span></span>
+        </div>
+
+        <p class="preloader-tagline">Brewing your experience...</p>
+
+    </div>
+
     <!-- 2D background shapes -->
     <div class="bg-shapes">
         <span class="shape-circle s1"></span>
@@ -442,6 +479,51 @@
 
         revealEls.forEach(function (el) { observer.observe(el); });
         fadeEls.forEach(function (el) { observer.observe(el); });
+
+        /* ---------- 3D tilt on product cards ---------- */
+        fadeEls.forEach(function (el) {
+            el.addEventListener("mousemove", function (e) {
+                if (!el.classList.contains("in-view")) return;
+                var r = el.getBoundingClientRect();
+                var px = (e.clientX - r.left) / r.width - 0.5;
+                var py = (e.clientY - r.top) / r.height - 0.5;
+                el.style.transition = "transform .12s ease-out, border-color .4s ease, box-shadow .4s ease";
+                el.style.transform =
+                    "perspective(1000px) rotateY(" + (px * 12) + "deg) rotateX(" +
+                    (-py * 12) + "deg) translateZ(26px)";
+            });
+
+            el.addEventListener("mouseleave", function () {
+                el.style.transition = "transform .55s ease, border-color .4s ease, box-shadow .4s ease";
+                el.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0)";
+            });
+        });
+
+        /* ---------- Coffee entry preloader ---------- */
+        var preloader = document.getElementById("preloader");
+        if (preloader) {
+            var minShow = 2600;
+            var start = Date.now();
+
+            function hidePreloader() {
+                var wait = Math.max(0, minShow - (Date.now() - start));
+                setTimeout(function () {
+                    preloader.classList.add("done");
+                    document.body.classList.add("site-ready");
+                    setTimeout(function () {
+                        if (preloader.parentNode) {
+                            preloader.parentNode.removeChild(preloader);
+                        }
+                    }, 900);
+                }, wait);
+            }
+
+            if (document.readyState === "complete") {
+                hidePreloader();
+            } else {
+                window.addEventListener("load", hidePreloader);
+            }
+        }
     });
     </script>
 </body>
